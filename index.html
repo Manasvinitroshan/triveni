@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Love You, Triveni 💖</title>
+  <style>
+    body {
+      background: #ffeef5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+      color: #d6336c;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .heart-emoji {
+      font-size: 3em;
+      animation: pulse 1.5s infinite;
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .typing {
+      font-size: 1.8em;
+      font-weight: 500;
+      margin-top: 50px;
+      min-height: 2em;
+    }
+
+    .button {
+      margin-top: 40px;
+      background: #ff6b81;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #e74c63;
+    }
+
+    /* Slideshow styles */
+    .slideshow {
+      margin-top: 60px;
+      max-width: 500px;
+      height: 350px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .fade {
+      animation: fadeEffect 1s ease-in-out;
+    }
+
+    @keyframes fadeEffect {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>I love you, Triveni Khatri 💘</h1>
+  <div class="date">17th June 2024, 11:44 PM</div>
+
+  <!-- Clickable heart emoji linking to Spotify -->
+  <a class="heart-emoji" href="https://open.spotify.com/track/4QhWbupniDd44EDtnh2bFJ" target="_blank" rel="noopener noreferrer">❤️</a>
+
+  <p>One year down, forever to go.</p>
+
+  <div class="typing" id="typing-text"></div>
+
+  <button class="button" onclick="showNote()">Click for a Secret 💌</button>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <img class="slides fade" src="IMG_0220.jpg" alt="Slide 1">
+    <img class="slides fade" src="100_1308.jpeg" alt="Slide 2">
+    <img class="slides fade" src="IMG_2537.JPG" alt="Slide 3">
+    <img class="slides fade" src="80D5FB9F-B7B2-4B96-9CE4-B5167840802A.JPG" alt="Slide 4">
+  </div>
+
+  <script>
+    const phrases = [
+      "I love you",
+      "Je t’aime",
+      "Te amo",
+      "Ich liebe dich",
+      "Ti amo",
+      "我爱你",
+      "मैं तुमसे प्यार करता हूँ",
+      "사랑해",
+      "愛してる",
+      "Eu te amo",
+      "Я тебя люблю",
+      "Seni seviyorum",
+      "Ek is lief vir jou",
+      "Nakupenda"
+    ];
+
+    let i = 0, j = 0;
+    let currentPhrase = [];
+    let isDeleting = false;
+    const speed = 150;
+    const target = document.getElementById("typing-text");
+
+    function loop() {
+      target.innerHTML = currentPhrase.join('');
+
+      if (!isDeleting && j < phrases[i].length) {
+        currentPhrase.push(phrases[i][j]);
+        j++;
+        setTimeout(loop, speed);
+      } else if (isDeleting && j > 0) {
+        currentPhrase.pop();
+        j--;
+        setTimeout(loop, speed / 2);
+      } else if (!isDeleting && j === phrases[i].length) {
+        isDeleting = true;
+        setTimeout(loop, 1500);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
+        setTimeout(loop, 500);
+      }
+    }
+
+    loop();
+
+    function showNote() {
+  alert("Hey Triveni,\n\nFrom the first time I saw you, I felt like I just had to make you mine. You are effortlessly ethereal—there’s simply no comparison. Daadi always told me that women are the personification of Goddess Laxmi, but when I met you, I finally understood what she meant.\n\nThere isn’t a woman I’ve met who is as driven, hardworking, and passionate as you. The love you have for your work and for those around you is something I truly admire—and it’s one of the many reasons I look up to you. You complete me, and you make me a better person every single day.\n\nWhen times are rough, or if we ever find ourselves in a tough spot, I want this little project to remind you just how much I love you. I may not be an artist with a paintbrush, but I had to create something to represent my love for you in the way I know best—through code.\n\nThere are so many ways I want to say 'I love you' to you, so I decided to say it in every language I could find. This website will live in some private corner of a GitHub repository, but just know—it might be the most meaningful piece of code I’ve ever written. For the person I love. For the woman I want to marry.\n\nForever yours,\nManas ❤️");
+}
+
+
+    // Slideshow logic
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slides");
+
+    function showSlides() {
+      for (let k = 0; k < slides.length; k++) {
+        slides[k].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2500); // 2.5s delay
+    }
+
+    showSlides();
+  </script>
+</body>
+</html>
